@@ -4,6 +4,7 @@ build-type: Simple
 cabal-version: >= 1.10
 
 library
+  hs-source-dirs: .
   build-depends: QuickCheck==2.14.3
                , hspec==2.9.7
                , base==4.16.4.0

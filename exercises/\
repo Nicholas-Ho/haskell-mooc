@@ -249,8 +249,7 @@ toList Empty = []
 toList (Pair k v n) = (k,v) : toList n
 
 fromList :: [(k,v)] -> KeyVals k v
-fromList [] = Empty
-fromList ((k,v):xs) = Pair k v (fromList xs)
+fromList = todo
 
 ------------------------------------------------------------------------------
 -- Ex 11: The data type Nat is the so called Peano
@@ -267,17 +266,10 @@ data Nat = Zero | PlusOne Nat
   deriving (Show,Eq)
 
 fromNat :: Nat -> Int
-fromNat Zero = 0
-fromNat (PlusOne n) = 1 + fromNat n
+fromNat n = todo
 
 toNat :: Int -> Maybe Nat
-toNat z
-  | z == 0    = Just Zero
-  | z > 0     = case n of
-                  Just v  -> Just $ PlusOne v
-                  Nothing -> Nothing
-  | otherwise = Nothing
-  where n = toNat (z-1)
+toNat z = todo
 
 ------------------------------------------------------------------------------
 -- Ex 12: While pleasingly simple in its definition, the Nat datatype is not
@@ -337,26 +329,10 @@ inc (O b) = I b
 inc (I b) = O (inc b)
 
 prettyPrint :: Bin -> String
--- prettyPrint b = reverse $ prettyPrint' b
--- prettyPrint' End   = ""
--- prettyPrint' (O b) = '0':prettyPrint b
--- prettyPrint' (I b) = '1':prettyPrint b
-prettyPrint b = prettyPrint' b ""
-                where prettyPrint' End   s = s
-                      prettyPrint' (O b) s = prettyPrint' b ('0':s)
-                      prettyPrint' (I b) s = prettyPrint' b ('1':s)
+prettyPrint = todo
 
 fromBin :: Bin -> Int
-fromBin b = fromBin' b 0
-fromBin' End _ = 0
-fromBin' (O b) e = fromBin' b (e+1)
-fromBin' (I b) e = 2^e + fromBin' b (e+1)
+fromBin = todo
 
 toBin :: Int -> Bin
-toBin v = case v of
-            0 -> O End
-            1 -> I End
-            otherwise -> binSingle v . toBin $ v `div` 2
-          where binSingle i = case i `mod` 2 of
-                                0 -> O
-                                1 -> I
+toBin = todo
